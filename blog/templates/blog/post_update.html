@@ -13,3 +13,14 @@
         <button type="submit" class="btn btn-primary">Save</button>
     </form>
 {% endblock content %}
+
+{% block JS %}
+    <script>
+        document.getElementById("id_author").classList.add("form-control")
+        document.getElementById("id_title").classList.add("form-control")
+        document.getElementById("id_text").classList.add("form-control")
+        document.getElementById("id_img").classList.add("form-control")
+        document.getElementById("id_created_date").classList.add("form-control")
+        document.getElementById("id_published_date").classList.add("form-control")
+    </script>
+{% endblock JS %}

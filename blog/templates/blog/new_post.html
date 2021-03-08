@@ -7,7 +7,7 @@
 {% block content %}
     <h2>New post</h2>
     <div style="width: 100%;">
-        <form method="POST" enctype="multipart/form-data">
+        <form method="POST" enctype="multipart/form-data" class="form-group">
             {% csrf_token %}
             <span>{{ form.non_field_errors }}</span>
             {{ form.as_p }}
@@ -15,5 +15,16 @@
         </form>
     </div>
 {% endblock content %}
+
+{% block JS %}
+    <script>
+        document.getElementById("id_author").classList.add("form-control")
+        document.getElementById("id_title").classList.add("form-control")
+        document.getElementById("id_text").classList.add("form-control")
+        document.getElementById("id_img").classList.add("form-control")
+        document.getElementById("id_created_date").classList.add("form-control")
+        document.getElementById("id_published_date").classList.add("form-control")
+    </script>
+{% endblock JS %}
 
 

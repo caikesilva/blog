@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+{% block header %}
+    <h1><a href="{% url 'post_list_view' %}">Django Girls Blog</a></h1>
+    <a href="{% url 'post_new_view' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+    <a href="{% url 'post_update_view' post.pk %}" class="top-menu"><span class="glyphicon glyphicon-pencil"></span></a>
+    <a href="{% url 'post_delete_view' post.pk %}" class="top-menu"><span class="glyphicon glyphicon-minus"></span></a>
+{% endblock header %}
+{% block content %}
+    <h2>Update post</h2>
+    <form method="POST" style="width: 100%;" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+{% endblock content %}

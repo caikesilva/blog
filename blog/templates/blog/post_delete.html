@@ -1,0 +1,16 @@
+{% extends 'blog/base.html' %}
+{% block header %}
+    <h1><a href="{% url 'post_list_view' %}">Django Girls Blog</a></h1>
+{% endblock header %}
+
+{% block content %}
+    <div class="post">
+        <h1>Tem certeza?</h1>
+        <p class="date">Você tem certeza que quer remover post "Bem vindo"? Todos os seguintes itens relacionados serão removidos:</p>
+        <form method="POST" action="{% url 'post_delete_view' post.pk %}">
+            {% csrf_token %}
+            <button class="btn btn-primary">Delete</button>
+        </form>
+        <a href="{% url 'post_detail_view' post.pk %}" class="button cancel-link">Não, me leve de volta</a> 
+    </div>
+{% endblock content %}

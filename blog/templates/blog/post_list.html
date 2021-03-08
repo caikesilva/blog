@@ -1,0 +1,23 @@
+{% extends 'blog/base.html' %}
+{% block header %}
+    <a href="{% url 'post_new_view' %}" class="text-end" style="color: #FFF">
+        <span class="material-icons">add_circle</span>
+    </a>
+{% endblock header %}
+{% block content %}
+    {% for post in object_list %}
+        <div class="container" style="display: inline;">
+            {% if post.img %}
+                <img src="{{MEDIA_URL}}{{post.img.url}}" class="card-img-top">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{post.title}}</h5>
+                <p class="card-text">{{ post.text }}</p>
+                <strong>{{ post.published_date }}</strong>
+                <br>
+                <br>
+                <a href="{% url 'post_detail_view' post.pk %}" class="btn btn-primary">Detail</a>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

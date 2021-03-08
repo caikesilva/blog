@@ -1,0 +1,31 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block header %}
+    <div class="text-end">
+        <a href="{% url 'post_new_view' %}" style="color: #FFF; text-decoration: none; padding: 20px;">
+            <span class="material-icons">add_circle</span>
+        </a>
+        <a href="{% url 'post_update_view' post.pk %}" style="color: #FFF; text-decoration: none; padding: 20px;">
+            <span class="material-icons">create</span>
+        </a>
+        <a href="{% url 'post_delete_view' post.pk %}" style="color: #FFF; padding: 20px;">
+            <span class="material-icons">delete</span>
+        </a>
+    </div>
+{% endblock header %}
+
+{% block content %}
+    <div style="width: 100%;">
+        {% if object.img %}
+            <div style="padding: 10px; border: 2px solid #FFF;">
+                <img width="100%" heigth="50px" src="{{MEDIA_URL}}{{object.img.url}}">
+            </div>
+        {% endif %}
+        <div>
+            {{ object.published_date }}
+        </div>
+        <h2>{{ object.title }}</h2>
+        <p>{{ object.text|linebreaksbr }}</p>
+    </div>
+{% endblock content %}
+    

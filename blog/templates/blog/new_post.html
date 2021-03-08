@@ -1,0 +1,19 @@
+{% extends 'blog/base.html' %}
+{% block header %}
+    <a href="{% url 'post_new_view' %}" class="text-end" style="color: #FFF">
+        <span class="material-icons">add_circle</span>
+    </a>
+{% endblock header %}
+{% block content %}
+    <h2>New post</h2>
+    <div style="width: 100%;">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <span>{{ form.non_field_errors }}</span>
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+    </div>
+{% endblock content %}
+
+

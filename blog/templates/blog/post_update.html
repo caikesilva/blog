@@ -1,9 +1,16 @@
 {% extends 'blog/base.html' %}
 {% block header %}
-    <h1><a href="{% url 'post_list_view' %}">Django Girls Blog</a></h1>
-    <a href="{% url 'post_new_view' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-    <a href="{% url 'post_update_view' post.pk %}" class="top-menu"><span class="glyphicon glyphicon-pencil"></span></a>
-    <a href="{% url 'post_delete_view' post.pk %}" class="top-menu"><span class="glyphicon glyphicon-minus"></span></a>
+    <div class="text-end">
+        <a href="{% url 'post_new_view' %}" style="color: #FFF; text-decoration: none; padding: 20px;">
+            <span class="material-icons">add_circle</span>
+        </a>
+        <a href="{% url 'post_update_view' post.pk %}" style="color: #FFF; text-decoration: none; padding: 20px;">
+            <span class="material-icons">create</span>
+        </a>
+        <a href="{% url 'post_delete_view' post.pk %}" style="color: #FFF; padding: 20px;">
+            <span class="material-icons">delete</span>
+        </a>
+    </div>
 {% endblock header %}
 {% block content %}
     <h2>Update post</h2>

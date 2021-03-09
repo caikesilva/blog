@@ -15,6 +15,8 @@ class PostCreateView(CreateView):
 
 class PostListView(ListView):
     model = Post
+    paginate_by = 2
+    ordering = ['-published_date']
     template_name = "blog/post_list.html"
 
 class PostDetailView(DetailView):

@@ -5,10 +5,8 @@ class PostForm(forms.ModelForm):
 
     class meta:
         model = Post
-        fields = ('author', 'title', 'text', 'img')
+        fields = ('author', 'title', 'text', 'img', 'created_date', 'published_date')
         widgets = {
-            'author': forms.SelectMultiple(attrs={ 'class': 'form-control'}),
-            'title': forms.TextInput(attrs={ 'class': 'form-control'}),
-            'text': forms.TextInput(attrs={ 'class': 'form-control'}),
-            'img': forms.FileInput(attrs={ 'class': 'form-control'})
+            'created_date': forms.DateTimeField(attrs={'type': 'date'}),
+            'published_date': forms.DateTimeField(attrs={'type': 'date'}),
         }
